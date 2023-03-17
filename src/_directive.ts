@@ -1,8 +1,8 @@
-import type { Directive, DirectiveBinding } from 'vue'
+import type { DirectiveBinding } from 'vue'
 import type { PrlxOptions, PrlxSettings } from './types'
 
 // VUE DIRECTIVE DEFINITION
-const directive: Directive = {
+const directive = {
   beforeMount: onBind,
   updated: onBind,
   unmounted: onUnbind

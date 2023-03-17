@@ -1,8 +1,7 @@
 import nodeResolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
 import terser from '@rollup/plugin-terser'
-import typescript from '@rollup/plugin-typescript'
-
+import typescript from '@rollup/plugin-typescript' 
 
 export default {
   input: 'src/index.ts',
@@ -16,6 +15,6 @@ export default {
     format: 'umd',
     name: 'VuePrlx',
     exports: 'named',
-    file: 'dist/v-prlx.min.js',
+    file: 'dist/index.min.js',
   },
 }

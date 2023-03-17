@@ -2,12 +2,14 @@
   "name": "vue3-prlx",
   "version": "2.0.0",
   "description": "Vue.js parallax directive you were looking for",
-  "main": "dist/v-prlx.js",
-  "module": "dist/v-prlx.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "build": "pnpm run bundle && pnpm run bundle:min",
+    "build": "pnpm run build:dts && pnpm run bundle && pnpm run bundle:min && pnpm run bundle:dts",
+    "build:dts": "tsc -p tsconfig.json -d --emitDeclarationOnly --declarationDir tmp/",
     "bundle": "rollup -c build/rollup.conf.mjs",
-    "bundle:min": "rollup -c build/rollup.conf.min.mjs"
+    "bundle:min": "rollup -c build/rollup.conf.min.mjs",
+    "bundle:dts": "rollup -c build/rollup.conf.dts.mjs"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "@rollup/plugin-terser": "^0.4.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "rollup": "3.19.1",
+    "rollup-plugin-dts": "^5.2.0",
     "tslib": "^2.5.0",
     "typescript": "^5.0.2",
     "vue": "^3.2.47"

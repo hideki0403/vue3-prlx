@@ -1,8 +1,8 @@
-import type { Plugin } from 'vue'
+import type { App } from 'vue'
 import directive from './_directive'
 
-const plugin: Plugin = {
-  install: (app) => {
+const plugin = {
+  install: (app: App<Element>) => {
     app.directive('prlx', directive)
   }
 }

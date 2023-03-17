@@ -14,11 +14,11 @@ export default {
       format: 'umd',
       name: 'VuePrlx',
       exports: 'named',
-      file: 'dist/v-prlx.js',
+      file: 'dist/index.js',
     },
     {
       format: 'esm',
-      file: 'dist/v-prlx.esm.js',
+      file: 'dist/index.esm.js',
     },
   ],
 }
