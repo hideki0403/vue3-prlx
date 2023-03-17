@@ -1,6 +1,6 @@
 {
   "name": "vue3-prlx",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue.js parallax directive you were looking for",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
