@@ -1,20 +1,23 @@
+import type { Directive, DirectiveBinding } from 'vue'
+import type { PrlxOptions, PrlxSettings } from './types'
+
 // VUE DIRECTIVE DEFINITION
-export default {
-  bind: onBind,
-
-  update: onBind,
-
-  unbind: onUnbind
+const directive: Directive = {
+  beforeMount: onBind,
+  updated: onBind,
+  unmounted: onUnbind
 }
 
-// FUNCTIONS
+export default directive
 
-function onUnbind (el) {
+// FUNCTIONS
+function onUnbind(el: HTMLElement) {
+  if (!el.__prlxRequestAnimationFrameId) return
   window.cancelAnimationFrame(el.__prlxRequestAnimationFrameId)
   delete el.__prlxRequestAnimationFrameId
 }
 
-function onBind (el, { modifiers = {}, value = {} }) {
+function onBind(el: HTMLElement, { modifiers = {}, value = {} }: DirectiveBinding<PrlxOptions>) {
   // SETUP SETTING
   const settings = {
     // {boolean} – enable parallax on mobile
@@ -81,7 +84,7 @@ function onBind (el, { modifiers = {}, value = {} }) {
   }
 }
 
-function init (el, settings) {
+function init(el: HTMLElement, settings: PrlxSettings) {
   // START PARALLAX FROM MIDDLE OR BOTTOM OF THE SCREEN
   const startingPoint = settings.startParallaxFromBottom
     ? window.innerHeight
@@ -103,7 +106,7 @@ function init (el, settings) {
   el.__prlxRequestAnimationFrameId = window.requestAnimationFrame(init.bind(null, el, settings))
 }
 
-function animate (el, scrollPosition, settings) {
+function animate(el: HTMLElement, scrollPosition: number, settings: PrlxSettings) {
   let offset = scrollPosition * settings.speed
 
   // NORMALIZE OFFSET
@@ -126,7 +129,7 @@ function animate (el, scrollPosition, settings) {
   parallaxType(el, offset, settings.direction)
 }
 
-function parallaxBackgroundPosition (el, offset, direction) {
+function parallaxBackgroundPosition(el: HTMLElement, offset: number, direction: PrlxSettings['direction']) {
   el.style.transition = `background-position 0.1s ease-out`
 
   if (direction === 'y') {
@@ -136,22 +139,22 @@ function parallaxBackgroundPosition (el, offset, direction) {
   }
 }
 
-function parallaxTransform (el, offset, direction) {
+function parallaxTransform(el: HTMLElement, offset: number, direction: PrlxSettings['direction']) {
   el.style.transition = `transform 0.1s ease-out`
   el.style.transform = `translate${direction.toUpperCase()}(${Math.round(offset)}px)`
 }
 
-function addParallaxValueAsCssVariable (el, offset) {
-  el.style.setProperty('--parallax-value', offset)
+function addParallaxValueAsCssVariable(el: HTMLElement, offset: number) {
+  el.style.setProperty('--parallax-value', offset.toString())
 }
 
-const isInViewport = (el, { top: t, height: h } = el.getBoundingClientRect()) => t <= innerHeight && t + h > 0
+const isInViewport = (el: HTMLElement, { top: t, height: h } = el.getBoundingClientRect()) => t <= innerHeight && t + h > 0
 
-const offsetTopFromWindow = element => {
+const offsetTopFromWindow = (element: HTMLElement) => {
   let top = 0
   do {
     top += element.offsetTop || 0
-    element = element.offsetParent
+    element = element.offsetParent as HTMLElement
   } while (element)
 
   return top
