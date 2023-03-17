@@ -1,48 +1,47 @@
-# vue-prlx
-
-[![npm](https://img.shields.io/npm/v/vue-prlx.svg)](https://www.npmjs.com/package/vue-prlx)
-[![npm](https://img.shields.io/npm/dt/vue-prlx.svg)](https://www.npmjs.com/package/vue-prlx)
-
-## [Demo and settings](http://vue-prlx.surge.sh)
-
-
+# vue3-prlx
+  
+This repository is a fork of [vue-prlx](https://github.com/gerasimvol/vue-prlx) that has been rewritten in TypeScript and made compatible with Vue 3.  
+  
 ### 🛠 Install
 
 ```bash
-npm i vue-prlx
+npm i hideki0403/vue3-prlx
 ```
 
 ```bash
-yarn add vue-prlx
+yarn add hideki0403/vue3-prlx
 ```
+
+```bash
+pnpm i hideki0403/vue3-prlx
+```
+
 
 ### 🔌 Initialization
 
 #### ES2015 (Webpack/Rollup/Browserify/etc)
 
 ```javascript
-import Vue from 'vue'
-
 // As a plugin
-import VuePrlx from 'vue-prlx'
-Vue.use(VuePrlx);
+import VuePrlx from 'vue3-prlx'
+app.use(VuePrlx)
 
 // Or as a directive
-import { VuePrlxDirective } from 'vue-prlx'
-Vue.directive('prlx', VuePrlxDirective);
+import { VuePrlxDirective } from 'vue3-prlx'
+app.directive('prlx', VuePrlxDirective)
 ```
 
 #### UMD (Browser)
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue-prlx/dist/v-prlx.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hideki0403/vue3-prlx@latest/dist/v-prlx.min.js"></script>
 <script>
 // As a plugin
-Vue.use(VuePrlx.VuePrlxPlugin);
+app.use(VuePrlx.VuePrlxPlugin)
 
 // Or as a directive
-Vue.directive('prlx', VuePrlx.VuePrlxDirective);
+app.directive('prlx', VuePrlx.VuePrlxDirective)
 </script>
 ```
 

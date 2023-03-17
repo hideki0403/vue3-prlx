@@ -1,6 +1,6 @@
 {
-  "name": "vue-prlx",
-  "version": "1.3.4",
+  "name": "vue3-prlx",
+  "version": "2.0.0",
   "description": "Vue.js parallax directive you were looking for",
   "main": "dist/v-prlx.js",
   "module": "dist/v-prlx.esm.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gerasimvol/vue-prlx.git"
+    "url": "git+https://github.com/hideki0403/vue3-prlx.git"
   },
   "keywords": [
     "vue",
@@ -25,9 +25,9 @@
   "author": "Vladimir Gerasimenko <vol.gerasimenko@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gerasimvol/vue-prlx/issues"
+    "url": "https://github.com/hideki0403/vue-prlx/issues"
   },
-  "homepage": "https://github.com/gerasimvol/vue-prlx#readme",
+  "homepage": "https://github.com/hideki0403/vue-prlx#readme",
   "devDependencies": {
     "@babel/core": "7.21.3",
     "@babel/preset-env": "7.20.2",
