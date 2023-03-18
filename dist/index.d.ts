@@ -33,4 +33,4 @@ declare const plugin: {
     install: (app: App<Element>) => void;
 };
 
-export { plugin as VuePrlx, directive as VuePrlxDirective, plugin as default };
+export { plugin as VuePrlx, directive as VuePrlxDirective, PrlxOptions as VuePrlxOptions, plugin as default };
