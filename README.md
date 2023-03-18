@@ -35,7 +35,7 @@ app.directive('prlx', VuePrlxDirective)
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/hideki0403/vue3-prlx@latest/dist/v-prlx.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hideki0403/vue3-prlx@latest/dist/index.min.js"></script>
 <script>
 // As a plugin
 app.use(VuePrlx.VuePrlxPlugin)
